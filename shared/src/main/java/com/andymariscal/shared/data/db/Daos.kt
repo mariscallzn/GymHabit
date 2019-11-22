@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 interface ExerciseDao {
 
     @Insert
-    fun insertAll(vararg exercises: ExerciseEntity)
+    fun insertAll(exercises: List<ExerciseEntity>)
 
     @Query("SELECT * FROM exercises")
     fun getAll(): Flow<ExerciseEntity>
@@ -21,7 +21,7 @@ interface ExerciseDao {
 @Dao
 interface MuscleDao {
     @Insert
-    fun insertAll(vararg exercises: MuscleEntity)
+    fun insertAll(exercises: List<MuscleEntity>)
 
     @Query("SELECT * FROM muscles")
     fun getAll(): Flow<MuscleEntity>
@@ -32,7 +32,7 @@ interface MuscleDao {
 @Dao
 interface EquipmentDao {
     @Insert
-    fun insertAll(vararg exercises: EquipmentEntity)
+    fun insertAll(exercises: List<EquipmentEntity>)
 
     @Query("SELECT * FROM equipments")
     fun getAll(): Flow<EquipmentEntity>
@@ -43,7 +43,7 @@ interface EquipmentDao {
 @Dao
 interface ExerciseTypeDao {
     @Insert
-    fun insertAll(vararg exercises: ExerciseTypeEntity)
+    fun insertAll(exercises: List<ExerciseTypeEntity>)
 
     @Query("SELECT * FROM exercise_types")
     fun getAll(): Flow<ExerciseTypeEntity>

@@ -1,3 +1,53 @@
 <resources>
     <string name="app_name">Shared</string>
+
+    <!-- region Pre populated Data   -->
+
+    <!-- region Muscles -->
+    <string name="db_chest">Chest</string>
+    <string name="db_forearms">Forearms</string>
+    <string name="db_lats">Lats</string>
+    <string name="db_middle_back">Middle Back</string>
+    <string name="db_lower_back">Lower Back</string>
+    <string name="db_neck">Neck</string>
+    <string name="db_quadriceps">Quadriceps</string>
+    <string name="db_hamstrings">Hamstrings</string>
+    <string name="db_calves">Calves</string>
+    <string name="db_triceps">Triceps</string>
+    <string name="db_traps">Traps</string>
+    <string name="db_shoulders">Shoulders</string>
+    <string name="db_abs">Abs</string>
+    <string name="db_glutes">Glutes</string>
+    <string name="db_biceps">Biceps</string>
+    <string name="db_adductors">Adductors</string>
+    <string name="db_abductors">Abductors</string>
+    <!-- endregion-->
+
+    <!-- region Equipment -->
+    <string name="db_band">Band</string>
+    <string name="db_foam_roll">Foam Roll</string>
+    <string name="db_barbell">Barbell</string>
+    <string name="db_kettlebells">Kettlebells</string>
+    <string name="db_body_only">Body Only</string>
+    <string name="db_machine">Machine</string>
+    <string name="db_cable">Cable</string>
+    <string name="db_medicine_ball">Medicine Ball</string>
+    <string name="db_dumbbell">Dumbbell</string>
+    <string name="db_none">None</string>
+    <string name="db_ez_curl_bar">E-Z Curl Bar</string>
+    <string name="db_other">Other</string>
+    <string name="db_exercise_ball">Exercise Ball</string>
+    <!-- endregion-->
+
+    <!-- region Exercise Type-->
+    <string name="db_cardio">Cardio</string>
+    <string name="db_olympic_weightlifting">Olympic Weightlifting</string>
+    <string name="db_plyometrics">Plyometrics</string>
+    <string name="db_powerlifting">Powerlifting</string>
+    <string name="db_strength">Strength</string>
+    <string name="db_stretching">Stretching</string>
+    <string name="db_strongman">Strongman</string>
+    <!-- endregion-->
+
+    <!-- endregion-->
 </resources>

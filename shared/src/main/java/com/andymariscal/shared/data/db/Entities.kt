@@ -26,8 +26,8 @@ import androidx.room.PrimaryKey
     ]
 )
 data class ExerciseEntity(
-    @PrimaryKey
-    val uid: Int,
+    @PrimaryKey(autoGenerate = true)
+    val uid: Int = 0,
     @ColumnInfo(name = "name")
     val name: String,
     @ColumnInfo(name = "description")
@@ -45,7 +45,9 @@ data class MuscleEntity(
     @PrimaryKey
     val uid: Int,
     @ColumnInfo(name = "name")
-    val name: String
+    val name: String,
+    @ColumnInfo(name = "res_id")
+    val resId: Int
 )
 
 @Entity(tableName = "equipments")
@@ -53,7 +55,9 @@ data class EquipmentEntity(
     @PrimaryKey
     val uid: Int,
     @ColumnInfo(name = "name")
-    val name: String
+    val name: String,
+    @ColumnInfo(name = "res_id")
+    val resId: Int
 )
 
 @Entity(tableName = "exercise_types")
@@ -61,5 +65,7 @@ data class ExerciseTypeEntity(
     @PrimaryKey
     val uid: Int,
     @ColumnInfo(name = "name")
-    val name: String
+    val name: String,
+    @ColumnInfo(name = "res_id")
+    val resId: Int
 )

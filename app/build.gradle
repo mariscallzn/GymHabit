@@ -28,6 +28,9 @@ android {
 }
 
 dependencies {
+    // region Project implementation
+    implementation project(':shared')
+    // endregion
 
     // region Navigation Component https://developer.android.com/jetpack/androidx/releases/navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navVersion"
