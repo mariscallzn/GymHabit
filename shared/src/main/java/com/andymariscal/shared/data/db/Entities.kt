@@ -30,6 +30,8 @@ data class ExerciseEntity(
     val uid: Int = 0,
     @ColumnInfo(name = "name")
     val name: String,
+    //TODO: Some time in the future; We need to add a new column that stores the ResId in order to
+    // handle multiple languages.
     @ColumnInfo(name = "description")
     val description: String,
     @ColumnInfo(name = "muscle_id")

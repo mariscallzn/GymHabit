@@ -1,7 +1,6 @@
 package com.andymariscal.shared.data.db
 
 import android.content.Context
-import android.util.Log
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.andymariscal.shared.R
@@ -12,7 +11,6 @@ class SetupCallback(private val context: Context) : RoomDatabase.Callback() {
     override fun onCreate(db: SupportSQLiteDatabase) {
         super.onCreate(db)
         Executors.newSingleThreadExecutor().execute {
-            Log.e("Andres", "Ok Database")
             val appDb = AppDatabase.getInstance(context)
             appDb.muscleDao().insertAll(MUSCLES)
             appDb.equipmentDao().insertAll(EQUIPMENT)
@@ -41,6 +39,20 @@ class SetupCallback(private val context: Context) : RoomDatabase.Callback() {
             ),
             ExerciseEntity(
                 name = "Incline Dumbbell Press",
+                description = "TODO",
+                muscleId = CHEST_ID,
+                equipmentId = DUMBBELL_ID,
+                exerciseTypeId = STRENGTH_ID
+            ),
+            ExerciseEntity(
+                name = "Low Single-Arm Crossover",
+                description = "TODO",
+                muscleId = CHEST_ID,
+                equipmentId = DUMBBELL_ID,
+                exerciseTypeId = STRENGTH_ID
+            ),
+            ExerciseEntity(
+                name = "Dumbbell Bench Press",
                 description = "TODO",
                 muscleId = CHEST_ID,
                 equipmentId = DUMBBELL_ID,
