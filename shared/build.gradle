@@ -40,6 +40,10 @@ dependencies {
     androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
     // endregion
 
+    // region ThreeTen-BP https://www.threeten.org/threetenbp/
+    implementation "org.threeten:threetenbp:$rootProject.threeTenVersion"
+    // endregion
+
     // region Project
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlinVersion"

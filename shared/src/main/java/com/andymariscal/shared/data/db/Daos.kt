@@ -4,6 +4,19 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
+// TODO: Andres 2019-12-28 Create an abstract class that encapsulate all the basic operations
+//region TrackingDao
+@Dao
+interface TrackingDao {
+
+    @Insert
+    fun insertAll(trackingList: List<Tracking>)
+
+    @Query("SELECT * FROM tracking")
+    fun getAll(): Flow<Tracking>
+}
+//endregion
+
 // region ExerciseDao
 // TODO: May be I can implement in the future the Paging from JetPack with this
 @Dao

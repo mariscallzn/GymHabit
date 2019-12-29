@@ -4,6 +4,30 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import org.threeten.bp.OffsetDateTime
+
+@Entity(
+    tableName = "tracking",
+    foreignKeys = [
+        ForeignKey(
+            entity = ExerciseEntity::class,
+            parentColumns = arrayOf("uid"),
+            childColumns = arrayOf("exercise_id")
+        )
+    ]
+)
+data class Tracking(
+    @PrimaryKey(autoGenerate = true)
+    val uid: Int,
+    @ColumnInfo(name = "exercise_id")
+    val exerciseId: Int,
+    @ColumnInfo(name = "workout_file")
+    val workoutFile: String, // Json file name/path/reference
+    @ColumnInfo(name = "created_date")
+    val createdDate: OffsetDateTime? = null,
+    @ColumnInfo(name = "completed_date")
+    val completedDate: OffsetDateTime? = null
+)
 
 @Entity(
     tableName = "exercises",

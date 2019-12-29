@@ -1,13 +1,15 @@
 package com.andymariscal.shared.data.db
 
 import android.content.Context
-import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.andymariscal.shared.utils.Converters
 
 @Database(
     entities = [
+        Tracking::class,
         ExerciseEntity::class,
         MuscleEntity::class,
         EquipmentEntity::class,
@@ -15,7 +17,10 @@ import androidx.room.RoomDatabase
     ],
     version = 1
 )
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
+
+    abstract fun trackingDao(): TrackingDao
 
     abstract fun exerciseDao(): ExerciseDao
 
