@@ -30,6 +30,7 @@ android {
 dependencies {
     // region Project implementation
     implementation project(':shared')
+    implementation project(':model')
     // endregion
 
     // region Navigation Component https://developer.android.com/jetpack/androidx/releases/navigation
@@ -78,4 +79,9 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:$rootProject.androidXJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.androidXEspressoCoreVersion"
     // endregion
+
+    //region tmp
+    kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.9.2'
+    implementation "com.squareup.moshi:moshi:1.9.2"
+    //endregion
 }

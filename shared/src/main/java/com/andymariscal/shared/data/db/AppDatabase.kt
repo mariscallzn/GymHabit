@@ -9,7 +9,7 @@ import com.andymariscal.shared.utils.Converters
 
 @Database(
     entities = [
-        Tracking::class,
+        TrackingEntity::class,
         ExerciseEntity::class,
         MuscleEntity::class,
         EquipmentEntity::class,
@@ -29,6 +29,14 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun equipmentDao(): EquipmentDao
 
     abstract fun exerciseTypeDao(): ExerciseTypeDao
+
+    abstract fun sessionCommentDao(): SessionCommentDao
+
+    abstract fun sessionDao(): SessionDao
+
+    abstract fun setDao(): SetDao
+
+
 
     companion object {
         private const val DATABASE_NAME = "gymhabit-db"
