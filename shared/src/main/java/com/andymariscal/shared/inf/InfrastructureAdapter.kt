@@ -6,6 +6,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
+//region Constants
+const val DEFAULT_VIEW_TYPE = 1
+//endregion
+
 // region ViewTypeDelegate typealias
 typealias ViewTypeDelegate = Pair<Int, ViewTypeDelegateAdapter>
 // endregion
@@ -51,6 +55,12 @@ interface ViewType {
     fun getUniqueProperty(): Any
 }
 // endregion
+
+//region OpenViewType
+abstract class OpenViewType(private val viewTypeId: Int = DEFAULT_VIEW_TYPE): ViewType {
+    override fun getViewType(): Int = viewTypeId
+}
+//endregion
 
 // region DefaultDiffCallback
 object DefaultDiffCallback : DiffUtil.ItemCallback<ViewType>() {
