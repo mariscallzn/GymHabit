@@ -10,6 +10,10 @@ import com.andymariscal.shared.utils.Converters
 @Database(
     entities = [
         TrackingEntity::class,
+        SessionEntity::class,
+        SessionCommentEntity::class,
+        SetEntity::class,
+        SetTypeEntity::class,
         ExerciseEntity::class,
         MuscleEntity::class,
         EquipmentEntity::class,

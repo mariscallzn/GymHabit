@@ -61,46 +61,46 @@ class SetupCallback(private val context: Context) : RoomDatabase.Callback() {
         )
 
         val MUSCLES = listOf(
-            MuscleEntity(CHEST_ID, "Chest", R.string.db_chest),
-            MuscleEntity(2, "Forearms", R.string.db_forearms),
-            MuscleEntity(3, "Lats", R.string.db_lats),
-            MuscleEntity(4, "Chest", R.string.db_chest),
-            MuscleEntity(5, "Middle Back", R.string.db_middle_back),
-            MuscleEntity(6, "Lower Back", R.string.db_lower_back),
-            MuscleEntity(7, "Neck", R.string.db_neck),
-            MuscleEntity(8, "Quadriceps", R.string.db_quadriceps),
-            MuscleEntity(9, "Hamstrings", R.string.db_hamstrings),
-            MuscleEntity(10, "Calves", R.string.db_calves),
-            MuscleEntity(11, "Triceps", R.string.db_triceps),
-            MuscleEntity(12, "Traps", R.string.db_traps),
-            MuscleEntity(13, "Shoulders", R.string.db_shoulders),
-            MuscleEntity(14, "Abs", R.string.db_abs),
-            MuscleEntity(15, "Adductors", R.string.db_adductors),
-            MuscleEntity(16, "Abductors", R.string.db_abductors)
+            MuscleEntity(CHEST_ID, "Chest"),
+            MuscleEntity(2, "Forearms"),
+            MuscleEntity(3, "Lats"),
+            MuscleEntity(4, "Chest"),
+            MuscleEntity(5, "Middle Back"),
+            MuscleEntity(6, "Lower Back"),
+            MuscleEntity(7, "Neck"),
+            MuscleEntity(8, "Quadriceps"),
+            MuscleEntity(9, "Hamstrings"),
+            MuscleEntity(10, "Calves"),
+            MuscleEntity(11, "Triceps"),
+            MuscleEntity(12, "Traps"),
+            MuscleEntity(13, "Shoulders"),
+            MuscleEntity(14, "Abs"),
+            MuscleEntity(15, "Adductors"),
+            MuscleEntity(16, "Abductors")
         )
 
         val EQUIPMENT = listOf(
-            EquipmentEntity(1, "Band", R.string.db_band),
-            EquipmentEntity(2, "Foam Roll", R.string.db_foam_roll),
-            EquipmentEntity(3, "Barbell", R.string.db_barbell),
-            EquipmentEntity(4, "Kettlebell", R.string.db_kettlebells),
-            EquipmentEntity(5, "Body Only", R.string.db_body_only),
-            EquipmentEntity(MACHINE_ID, "Machine", R.string.db_machine),
-            EquipmentEntity(7, "Cable", R.string.db_cable),
-            EquipmentEntity(8, "Medicine Ball", R.string.db_medicine_ball),
-            EquipmentEntity(DUMBBELL_ID, "Dumbbell", R.string.db_dumbbell),
-            EquipmentEntity(10, "None", R.string.db_none),
-            EquipmentEntity(12, "E-Z Curl Bar", R.string.db_ez_curl_bar),
-            EquipmentEntity(13, "Exercise Ball", R.string.db_exercise_ball)
+            EquipmentEntity(1, "Band"),
+            EquipmentEntity(2, "Foam Roll"),
+            EquipmentEntity(3, "Barbell"),
+            EquipmentEntity(4, "Kettlebell"),
+            EquipmentEntity(5, "Body Only"),
+            EquipmentEntity(MACHINE_ID, "Machine"),
+            EquipmentEntity(7, "Cable"),
+            EquipmentEntity(8, "Medicine Ball"),
+            EquipmentEntity(DUMBBELL_ID, "Dumbbell"),
+            EquipmentEntity(10, "None"),
+            EquipmentEntity(12, "E-Z Curl Bar"),
+            EquipmentEntity(13, "Exercise Ball")
         )
 
         val EXERCISE_TYPE = listOf(
-            ExerciseTypeEntity(1, "Cardio", R.string.db_cardio),
-            ExerciseTypeEntity(2, "Olympic Weightlifting", R.string.db_olympic_weightlifting),
-            ExerciseTypeEntity(3, "Plyometrics", R.string.db_plyometrics),
-            ExerciseTypeEntity(STRENGTH_ID, "Strength", R.string.db_strength),
-            ExerciseTypeEntity(5, "Stretching", R.string.db_stretching),
-            ExerciseTypeEntity(6, "Strongman", R.string.db_strongman)
+            ExerciseTypeEntity(1, "Cardio"),
+            ExerciseTypeEntity(2, "Olympic Weightlifting"),
+            ExerciseTypeEntity(3, "Plyometrics"),
+            ExerciseTypeEntity(STRENGTH_ID, "Strength"),
+            ExerciseTypeEntity(5, "Stretching"),
+            ExerciseTypeEntity(6, "Strongman")
         )
     }
 }
