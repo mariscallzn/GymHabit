@@ -14,7 +14,7 @@ buildscript {
         targetSdkVersion = 29
 
         // App dependencies
-        androidGradlePluginVersion = '3.5.3'
+        androidGradlePluginVersion = '3.6.1'
         androidXJunitVersion = '1.1.1'
         androidXEspressoCoreVersion = '3.2.0'
         appCompatVersion = '1.1.0'
