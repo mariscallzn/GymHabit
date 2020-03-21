@@ -1,12 +1,14 @@
 package com.andymariscal.shared.data.db
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.ForeignKey
-import androidx.room.PrimaryKey
+import androidx.room.*
 
 @Entity(
     tableName = "exercises",
+    indices = [
+        Index(value = ["muscle_id"], unique = false),
+        Index(value = ["equipment_id"], unique = false),
+        Index(value = ["exercise_type_id"], unique = false)
+    ],
     foreignKeys = [
         ForeignKey(
             entity = MuscleEntity::class,

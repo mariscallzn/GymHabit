@@ -1,12 +1,12 @@
 package com.andymariscal.shared.data.db
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.ForeignKey
-import androidx.room.PrimaryKey
+import androidx.room.*
 
 @Entity(
     tableName = "session_comments",
+    indices = [
+        Index(value = ["session_id"], unique = false)
+    ],
     foreignKeys = [
         ForeignKey(
             entity = SessionEntity::class,

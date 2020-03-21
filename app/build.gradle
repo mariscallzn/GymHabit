@@ -30,7 +30,6 @@ android {
 dependencies {
     // region Project implementation
     implementation project(':shared')
-    implementation project(':model')
     // endregion
 
     // region Navigation Component https://developer.android.com/jetpack/androidx/releases/navigation

@@ -1,12 +1,13 @@
 package com.andymariscal.shared.data.db
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.ForeignKey
-import androidx.room.PrimaryKey
+import androidx.room.*
 
 @Entity(
     tableName = "sets",
+    indices = [
+        Index( value = ["tracking_id"], unique = false),
+        Index( value = ["exercise_id"], unique = false)
+    ],
     foreignKeys = [
         ForeignKey(
             entity = TrackingEntity::class,

@@ -5,9 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.andymariscal.shared.BuildConfig
 import com.andymariscal.shared.utils.Converters
 
 @Database(
+    exportSchema = true,
     entities = [
         TrackingEntity::class,
         SessionEntity::class,
@@ -24,6 +26,7 @@ import com.andymariscal.shared.utils.Converters
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
+    //region Data Access Objects
     abstract fun trackingDao(): TrackingDao
 
     abstract fun exerciseDao(): ExerciseDao
@@ -39,12 +42,10 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun sessionDao(): SessionDao
 
     abstract fun setDao(): SetDao
+    //endregion
 
-
-
+    //region Initializer
     companion object {
-        private const val DATABASE_NAME = "gymhabit-db"
-
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
@@ -55,11 +56,12 @@ abstract class AppDatabase : RoomDatabase() {
 
         private fun buildDatabase(context: Context): AppDatabase =
             Room.databaseBuilder(
-                context,
-                AppDatabase::class.java,
-                DATABASE_NAME
-            )
+                    context,
+                    AppDatabase::class.java,
+                    BuildConfig.DB_NAME
+                )
                 .addCallback(SetupCallback(context))
                 .build()
     }
+    //endregion
 }
