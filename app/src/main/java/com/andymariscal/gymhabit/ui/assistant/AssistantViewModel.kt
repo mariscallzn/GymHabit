@@ -1,30 +1,108 @@
 package com.andymariscal.gymhabit.ui.assistant
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.andymariscal.gymhabit.ui.assistant.domain.CreateWorkoutUseCase
-import kotlinx.coroutines.async
+import com.andymariscal.gymhabit.ui.assistant.di.NAMED_ACTION_COMPONENT
+import com.andymariscal.gymhabit.ui.assistant.di.NAMED_ASSISTANT_COMPONENT
+import com.andymariscal.gymhabit.ui.assistant.toolkit.AbstractFactory
+import com.andymariscal.gymhabit.ui.assistant.toolkit.FactoryComponent
+import com.andymariscal.model.workout.FlowSequence
+import com.andymariscal.shared.data.Result
+import com.andymariscal.shared.data.succeeded
+import com.andymariscal.shared.domain.LoadFlowSequenceUseCase
+import com.andymariscal.shared.inf.DSFlowSequence
+import com.andymariscal.shared.inf.DefaultDiffCallback
+import com.andymariscal.shared.inf.ItemDelegateAdapter
+import com.andymariscal.shared.inf.ViewType
 import kotlinx.coroutines.launch
+import javax.inject.Inject
+import javax.inject.Named
 
-class AssistantViewModel(private val useCase: CreateWorkoutUseCase) : ViewModel() {
+class AssistantViewModel @Inject constructor(
+    private val useCase: LoadFlowSequenceUseCase,
+    @Named(NAMED_ACTION_COMPONENT) private val actionsComponent: FactoryComponent,
+    @Named(NAMED_ASSISTANT_COMPONENT) private val assistantComponent: FactoryComponent
+) : ViewModel() {
 
-    //region LiveData
-    private val _loading = MutableLiveData<Boolean>()
-    val loading: LiveData<Boolean>
-        get() = _loading
+    //region Init
+    init {
+        loadFlowSequence("create_workout")
+    }
+    //endregion
 
-    private val _showText = MutableLiveData<String>()
-    val showText: LiveData<String>
-        get() = _showText
+    //region Global properties
+    private var currentFlowSequence: DSFlowSequence<FlowSequence>? = null
+
+    private val chatHistory = mutableListOf<ViewType>()
+    private val actionsItems = mutableListOf<ViewType>()
+
+    val assistantAdapter by lazy {
+        ItemDelegateAdapter(
+            ItemDelegateAdapter.Builder(DefaultDiffCallback)
+                .addAllDelegates(
+                    *AbstractFactory.getFactory(assistantComponent)
+                        .getViewTypeDelegates(this)
+                )
+        )
+    }
+
+    val actionsAdapter by lazy {
+        ItemDelegateAdapter(
+            ItemDelegateAdapter.Builder(DefaultDiffCallback)
+                .addAllDelegates(
+                    *AbstractFactory.getFactory(actionsComponent)
+                        .getViewTypeDelegates(this)
+                )
+        )
+    }
     //endregion
 
     //region Actions
-    fun tryCourutine() {
-        _loading.postValue(true)
+    fun navigateFlowSequence(goToStep: Int = -1) {
+        if (goToStep != -1) currentFlowSequence?.moveTo(goToStep)
         viewModelScope.launch {
-            _showText.postValue("${useCase.letsSee().state} from dummy")
+            currentFlowSequence?.next()?.let {
+                addMessages(
+                    AbstractFactory.getFactory(assistantComponent)
+                        .getItem(it.message)
+                )
+
+                addActions(
+                    *AbstractFactory.getFactory(actionsComponent)
+                        .getItems(it.actions).toTypedArray()
+                )
+            }
+        }
+    }
+    //endregion
+
+    //region Private Inner logic
+    private fun loadFlowSequence(flowSequenceId: String) {
+        viewModelScope.launch {
+            useCase(flowSequenceId).apply {
+                if (succeeded) {
+                    currentFlowSequence = (this as Result.Success).data.dsFlowSequence
+                    navigateFlowSequence()
+                } else {
+                    TODO("Use case crashed")
+                }
+            }
+        }
+    }
+
+    private fun addMessages(vararg sequence: ViewType, clearSequence: Boolean = false) {
+        chatHistory.apply {
+            if (clearSequence) clear()
+            addAll(sequence)
+            assistantAdapter.submitList(this.toList())
+        }
+    }
+
+    private fun addActions(vararg actions: ViewType, clearActions: Boolean = true) {
+        actionsItems.apply {
+            if (clearActions) clear()
+            addAll(actions)
+            actionsAdapter.submitList(this.toList())
         }
     }
     //endregion

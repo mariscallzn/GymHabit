@@ -1,13 +1,17 @@
 package com.andymariscal.shared.inf
 
 import android.util.SparseArray
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.andymariscal.shared.R
+import com.andymariscal.shared.utils.inflate
+import kotlinx.android.synthetic.main.item_simple_string.view.*
 
 //region Constants
-const val DEFAULT_VIEW_TYPE = 1
+const val STRING_VIEW_TYPE = 1
 //endregion
 
 // region ViewTypeDelegate typealias
@@ -42,6 +46,12 @@ class ItemDelegateAdapter(
 }
 // endregion
 
+//region ViewHolderBinder
+abstract class ViewHolderBinder<in T>(view: View) : RecyclerView.ViewHolder(view) {
+    abstract fun bind(uiModel: T)
+}
+//endregion
+
 // region ViewTypeDelegateAdapter
 abstract class ViewTypeDelegateAdapter {
     abstract fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder
@@ -57,7 +67,7 @@ interface ViewType {
 // endregion
 
 //region OpenViewType
-abstract class OpenViewType(private val viewTypeId: Int = DEFAULT_VIEW_TYPE): ViewType {
+abstract class OpenViewType(private val viewTypeId: Int = STRING_VIEW_TYPE): ViewType {
     override fun getViewType(): Int = viewTypeId
 }
 //endregion
@@ -71,3 +81,13 @@ object DefaultDiffCallback : DiffUtil.ItemCallback<ViewType>() {
         oldItem.hashCode() == newItem.hashCode()
 }
 // endregion
+
+//region String Converter
+object StringConverter : IConverter<String, ViewType> {
+    override fun convert(source: String): ViewType =
+        object : ViewType {
+            override fun getViewType(): Int = STRING_VIEW_TYPE
+            override fun getUniqueProperty(): Any = source
+        }
+}
+//endregion

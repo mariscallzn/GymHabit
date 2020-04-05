@@ -11,5 +11,5 @@ interface MuscleDao {
     fun insertAll(exercises: List<MuscleEntity>)
 
     @Query("SELECT * FROM muscles")
-    fun getAll(): Flow<MuscleEntity>
+    fun getAll(): List<MuscleEntity>
 }

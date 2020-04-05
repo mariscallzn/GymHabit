@@ -43,7 +43,7 @@ android {
 dependencies {
 
     // region Project implementation
-    implementation project(':model')
+    api project(':model')
     //endregion
 
     // region Dagger https://developer.android.com/training/dependency-injection/dagger-android

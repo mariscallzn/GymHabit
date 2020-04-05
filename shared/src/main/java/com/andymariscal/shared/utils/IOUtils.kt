@@ -22,7 +22,7 @@ object IOUtils {
                     Charset.forName(charSet.name())
                 )
             )
-            var c = 0
+            var c: Int
             while (reader.read().also { c = it } != -1) {
                 stringBuilder.append(c.toChar())
             }
