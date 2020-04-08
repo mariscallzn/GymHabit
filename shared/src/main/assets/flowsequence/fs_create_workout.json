@@ -6,7 +6,8 @@
       "actions": [
         {
           "action_type": "picker_widget",
-          "value": "muscles"
+          "value_type": "catalog",
+          "metadata": "muscles"
         }
       ]
     },
@@ -16,7 +17,8 @@
       "actions": [
         {
           "action_type": "picker_widget",
-          "value": "exercises"
+          "value_type": "catalog",
+          "metadata": "exercises"
         }
       ]
     },
@@ -26,7 +28,8 @@
       "actions": [
         {
           "action_type": "number_widget",
-          "value": "integer"
+          "value_type": "integer",
+          "metadata": "sets"
         }
       ]
     },
@@ -36,7 +39,8 @@
       "actions": [
         {
           "action_type": "number_widget",
-          "value": "integer"
+          "value_type": "integer",
+          "metadata": "reps"
         }
       ]
     },
@@ -46,7 +50,8 @@
       "actions": [
         {
           "action_type": "number_widget",
-          "value": "float"
+          "value_type": "float",
+          "metadata": "wight"
         }
       ]
     },
@@ -56,11 +61,13 @@
       "actions": [
         {
           "action_type": "jump_back",
-          "value": "1"
+          "value_type": "step",
+          "metadata": "1"
         },
         {
           "action_type": "continue",
-          "value": "7"
+          "value_type": "step",
+          "metadata": "7"
         }
       ]
     },
@@ -70,11 +77,13 @@
       "actions": [
         {
           "action_type": "date_picker_widget",
-          "value": "schedule"
+          "value_type": "calendar",
+          "metadata": "current_date"
         },
         {
-          "action_type": "binary",
-          "value": "negative"
+          "action_type": "continue",
+          "value_type": "step",
+          "metadata": "8"
         }
       ]
     },
@@ -84,11 +93,13 @@
       "actions": [
         {
           "action_type": "start_flow_sequence",
-          "value": "create_workout"
+          "value_type": "create_workout",
+          "metadata": ""
         },
         {
           "action_type": "display_info",
-          "value": "latest_workout"
+          "value_type": "latest_workout",
+          "metadata": ""
         }
       ]
     }

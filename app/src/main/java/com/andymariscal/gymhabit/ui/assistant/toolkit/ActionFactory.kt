@@ -29,10 +29,10 @@ class ActionsFactory(
         withContext(ioDispatcher) {
             val action = type as Action
             when (action.actionType) {
-                PICKER_WIDGET -> displayPickerWidget(action.value)
-                NUMBER_WIDGET -> displayNumberWidget(action.value)
+                PICKER_WIDGET -> displayPickerWidget(action.valueType)
+                NUMBER_WIDGET -> displayNumberWidget(action.valueType)
                 else -> {
-                    UiString("${action.actionType} : ${action.value}")
+                    UiString("${action.actionType} : ${action.valueType}")
                 }
             }
         }

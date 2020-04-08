@@ -4,8 +4,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.andymariscal.gymhabit.ui.assistant.di.NAMED_ACTION_COMPONENT
 import com.andymariscal.gymhabit.ui.assistant.di.NAMED_ASSISTANT_COMPONENT
+import com.andymariscal.gymhabit.ui.assistant.operation.OperationDependencies
+import com.andymariscal.gymhabit.ui.assistant.operation.OperationFactory
 import com.andymariscal.gymhabit.ui.assistant.toolkit.AbstractFactory
 import com.andymariscal.gymhabit.ui.assistant.toolkit.FactoryComponent
+import com.andymariscal.model.workout.Action
 import com.andymariscal.model.workout.FlowSequence
 import com.andymariscal.shared.data.Result
 import com.andymariscal.shared.data.succeeded
@@ -21,7 +24,8 @@ import javax.inject.Named
 class AssistantViewModel @Inject constructor(
     private val useCase: LoadFlowSequenceUseCase,
     @Named(NAMED_ACTION_COMPONENT) private val actionsComponent: FactoryComponent,
-    @Named(NAMED_ASSISTANT_COMPONENT) private val assistantComponent: FactoryComponent
+    @Named(NAMED_ASSISTANT_COMPONENT) private val assistantComponent: FactoryComponent,
+    private val operationDependencies: OperationDependencies
 ) : ViewModel() {
 
     //region Init
@@ -74,10 +78,18 @@ class AssistantViewModel @Inject constructor(
             }
         }
     }
+
+    fun widgetListener(action: Action, value: Any) {
+        viewModelScope.launch {
+            OperationFactory.getFactory(operationDependencies).evaluate(action, value)
+        }
+    }
     //endregion
 
     //region Private Inner logic
+    @Suppress("SameParameterValue")
     private fun loadFlowSequence(flowSequenceId: String) {
+        operationDependencies.flowSequenceId = flowSequenceId
         viewModelScope.launch {
             useCase(flowSequenceId).apply {
                 if (succeeded) {

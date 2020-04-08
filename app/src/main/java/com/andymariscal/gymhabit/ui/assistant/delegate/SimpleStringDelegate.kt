@@ -5,8 +5,11 @@ import com.andymariscal.shared.utils.inflate
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
+import com.andymariscal.model.workout.Action
 import com.andymariscal.shared.R
+import com.andymariscal.shared.data.Result
 import com.andymariscal.shared.inf.*
+import com.andymariscal.shared.utils.UiString
 import kotlinx.android.synthetic.main.item_simple_string.view.*
 
 //region Simple String Delegate
@@ -26,7 +29,15 @@ class SimpleStringDelegate(
             itemView.apply {
                 tv_text.text = uiModel.getUniqueProperty() as String
                 setOnClickListener {
-                    (viewModel as AssistantViewModel).navigateFlowSequence()
+                    (viewModel as AssistantViewModel).widgetListener(
+                        Action(
+                            "number_widget",
+                            "float",
+                            "wight"
+                        ),
+                        Result.Success(UiString("Ahuevo!!"))
+                    )
+                    viewModel.navigateFlowSequence()
                 }
             }
         }

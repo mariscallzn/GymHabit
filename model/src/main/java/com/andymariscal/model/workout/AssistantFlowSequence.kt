@@ -25,6 +25,8 @@ data class FlowSequence(
 data class Action(
     @Json(name = "action_type")
     val actionType: String,
-    val value: String
+    @Json(name = "value_type")
+    val valueType: String,
+    val metadata: String
 )
 //endregion
