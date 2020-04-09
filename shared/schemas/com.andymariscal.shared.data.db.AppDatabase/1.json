@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "5917dee00631c4df827158edf846f9fd",
+    "identityHash": "d1fb9f416ff44eb008c08d8d310a47e6",
     "entities": [
       {
         "tableName": "tracking",
@@ -78,7 +78,7 @@
       },
       {
         "tableName": "sessions",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `created_time` TEXT NOT NULL, `planned_time` TEXT NOT NULL, `completed_time` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `created_time` TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP, `planned_time` TEXT NOT NULL, `completed_time` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "uid",
@@ -96,7 +96,8 @@
             "fieldPath": "createdTime",
             "columnName": "created_time",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": true,
+            "defaultValue": "CURRENT_TIMESTAMP"
           },
           {
             "fieldPath": "plannedTime",
@@ -528,7 +529,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5917dee00631c4df827158edf846f9fd')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd1fb9f416ff44eb008c08d8d310a47e6')"
     ]
   }
 }

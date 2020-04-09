@@ -43,8 +43,7 @@ class ActionsFactory(
 
     //region Private Inner logic
     private fun displayPickerWidget(value: String): ViewType {
-        val entity = appDatabase.muscleDao().getAll()[0]
-        return UiString("TODO: ${entity.name} : ${entity.uid}")
+        return UiString("TODO:")
     }
 
     private fun displayNumberWidget(value: String) : ViewType {

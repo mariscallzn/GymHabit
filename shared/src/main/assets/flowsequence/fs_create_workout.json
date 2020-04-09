@@ -2,17 +2,6 @@
   "flow_sequence": [
     {
       "step": 1,
-      "message": "Select a muscle",
-      "actions": [
-        {
-          "action_type": "picker_widget",
-          "value_type": "catalog",
-          "metadata": "muscles"
-        }
-      ]
-    },
-    {
-      "step": 2,
       "message": "select an exercise",
       "actions": [
         {
@@ -23,7 +12,7 @@
       ]
     },
     {
-      "step": 3,
+      "step": 2,
       "message": "How many sets do you want to do?",
       "actions": [
         {
@@ -34,7 +23,7 @@
       ]
     },
     {
-      "step": 4,
+      "step": 3,
       "message": "How many reps?",
       "actions": [
         {
@@ -45,7 +34,7 @@
       ]
     },
     {
-      "step": 5,
+      "step": 4,
       "message": "how much weight?",
       "actions": [
         {
@@ -56,7 +45,7 @@
       ]
     },
     {
-      "step": 6,
+      "step": 5,
       "message": "do you want to add another exercise",
       "actions": [
         {
@@ -72,7 +61,7 @@
       ]
     },
     {
-      "step": 7,
+      "step": 6,
       "message": "Do you want to set a date for this workout?",
       "actions": [
         {
@@ -88,18 +77,18 @@
       ]
     },
     {
-      "step": 8,
-      "message": "Awesome, your workout it's created",
+      "step": 7,
+      "message": "",
       "actions": [
         {
           "action_type": "start_flow_sequence",
           "value_type": "create_workout",
-          "metadata": ""
+          "metadata": "message:Awesome, your workout it's created"
         },
         {
           "action_type": "display_info",
           "value_type": "latest_workout",
-          "metadata": ""
+          "metadata": "message:TODO"
         }
       ]
     }

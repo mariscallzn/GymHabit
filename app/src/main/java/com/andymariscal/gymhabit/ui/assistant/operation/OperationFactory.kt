@@ -30,4 +30,5 @@ abstract class OperationFactory {
     }
 
     abstract suspend fun evaluate(action: Action, value: Any)
+    abstract suspend fun execute()
 }

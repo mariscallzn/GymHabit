@@ -17,6 +17,7 @@ import com.andymariscal.shared.inf.DSFlowSequence
 import com.andymariscal.shared.inf.DefaultDiffCallback
 import com.andymariscal.shared.inf.ItemDelegateAdapter
 import com.andymariscal.shared.inf.ViewType
+import com.andymariscal.shared.utils.UiString
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Named
@@ -66,10 +67,14 @@ class AssistantViewModel @Inject constructor(
         if (goToStep != -1) currentFlowSequence?.moveTo(goToStep)
         viewModelScope.launch {
             currentFlowSequence?.next()?.let {
-                addMessages(
-                    AbstractFactory.getFactory(assistantComponent)
-                        .getItem(it.message)
-                )
+
+                //If the message it's empty, we will just show the actions
+                if(it.message.isNotEmpty()) {
+                    addMessages(
+                        AbstractFactory.getFactory(assistantComponent)
+                            .getItem(it.message)
+                    )
+                }
 
                 addActions(
                     *AbstractFactory.getFactory(actionsComponent)

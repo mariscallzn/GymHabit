@@ -10,7 +10,7 @@ data class SessionEntity(
     val uid: Int,
     @ColumnInfo(name = "title")
     val title: String,
-    @ColumnInfo(name = "created_time")
+    @ColumnInfo(name = "created_time", defaultValue = "CURRENT_TIMESTAMP")
     val createdTime: String,
     @ColumnInfo(name = "planned_time")
     val plannedTime: String,
