@@ -10,7 +10,7 @@ const val MESSAGE_VIEW_TYPE = 1
 
 class AssistantFactory : AbstractFactory() {
     override suspend fun getItem(type: Any): ViewType {
-        return UiString(type as String)
+        return UiString(text = type as String)
     }
 
     override fun getViewTypeDelegates(viewModel: ViewModel): Array<ViewTypeDelegate> = arrayOf(

@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GymHabit.iml" filepath="$PROJECT_DIR$/GymHabit.iml" group="GymHabit" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="GymHabit/app" />
-      <module fileurl="file://$PROJECT_DIR$/model/model.iml" filepath="$PROJECT_DIR$/model/model.iml" group="GymHabit/model" />
-      <module fileurl="file://$PROJECT_DIR$/shared/shared.iml" filepath="$PROJECT_DIR$/shared/shared.iml" group="GymHabit/shared" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AndroidStudioProjects.GymHabit.iml" filepath="$PROJECT_DIR$/.idea/modules/AndroidStudioProjects.GymHabit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AndroidStudioProjects.GymHabit.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AndroidStudioProjects.GymHabit.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/model/AndroidStudioProjects.GymHabit.model.iml" filepath="$PROJECT_DIR$/.idea/modules/model/AndroidStudioProjects.GymHabit.model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/shared/AndroidStudioProjects.GymHabit.shared.iml" filepath="$PROJECT_DIR$/.idea/modules/shared/AndroidStudioProjects.GymHabit.shared.iml" />
     </modules>
   </component>
 </project>

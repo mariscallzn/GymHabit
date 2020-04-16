@@ -3,7 +3,6 @@ package com.andymariscal.shared.data.db
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ExerciseDao {
@@ -12,5 +11,5 @@ interface ExerciseDao {
     fun insertAll(exercises: List<ExerciseEntity>)
 
     @Query("SELECT * FROM exercises")
-    fun getAll(): Flow<ExerciseEntity>
+    fun getAll(): List<ExerciseEntity>
 }

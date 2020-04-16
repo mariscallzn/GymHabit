@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="1.7">
+      <module name="AndroidStudioProjects.GymHabit.app" target="1.8" />
+      <module name="AndroidStudioProjects.GymHabit.shared" target="1.8" />
+      <module name="GymHabit.app" target="1.8" />
+      <module name="GymHabit.model" target="1.7" />
+      <module name="GymHabit.shared" target="1.7" />
+      <module name="model" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

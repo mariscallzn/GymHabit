@@ -32,10 +32,10 @@ class SimpleStringDelegate(
                     (viewModel as AssistantViewModel).widgetListener(
                         Action(
                             "number_widget",
-                            "float",
+                            "double",
                             "wight"
                         ),
-                        Result.Success(UiString("Ahuevo!!"))
+                        Result.Success(UiString(text = "Ahuevo!!"))
                     )
                     viewModel.navigateFlowSequence()
                 }

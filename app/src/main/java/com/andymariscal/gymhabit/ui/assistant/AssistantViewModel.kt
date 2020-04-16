@@ -84,9 +84,19 @@ class AssistantViewModel @Inject constructor(
         }
     }
 
+    fun replayBackWith(message: ViewType){
+        addMessages(message)
+    }
+
     fun widgetListener(action: Action, value: Any) {
         viewModelScope.launch {
             OperationFactory.getFactory(operationDependencies).evaluate(action, value)
+        }
+    }
+
+    fun save() {
+        viewModelScope.launch {
+            OperationFactory.getFactory(operationDependencies).execute()
         }
     }
     //endregion
