@@ -2,6 +2,7 @@ package com.andymariscal.gymhabit.di
 
 import android.content.Context
 import com.andymariscal.gymhabit.ui.assistant.di.AssistantComponent
+import com.andymariscal.gymhabit.ui.createworkout.di.CreateWorkoutComponent
 import com.andymariscal.shared.di.SharedModule
 import com.andymariscal.shared.di.ViewModelBuilderModule
 import dagger.BindsInstance
@@ -25,4 +26,5 @@ interface AppComponent {
     }
 
     fun assistantComponent(): AssistantComponent.Factory
+    fun createWorkoutComponent(): CreateWorkoutComponent.Factory
 }

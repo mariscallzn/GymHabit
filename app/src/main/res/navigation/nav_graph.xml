@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/assistantFragment">
+    app:startDestination="@id/createWorkoutFragment">
 
     <fragment
-        android:id="@+id/assistantFragment"
-        android:name="com.andymariscal.gymhabit.ui.assistant.AssistantFragment"
-        android:label="AssistantFragment"
-        tools:layout="@layout/fragment_assistat"/>
+        android:id="@+id/createWorkoutFragment"
+        android:name="com.andymariscal.gymhabit.ui.createworkout.CreateWorkoutFragment"
+        android:label="CreateWorkoutFragment"
+        tools:layout="@layout/fragment_create_workout"/>
 </navigation>
